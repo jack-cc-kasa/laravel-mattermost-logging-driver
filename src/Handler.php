@@ -35,7 +35,7 @@ final class Handler extends AbstractProcessingHandler
         $this->messageClass = $messageClass;
     }
 
-    public function write (array $record)
+    public function write (array $record): void
     {
         if (!$this->shouldWrite($record['level'])) {
             return;
