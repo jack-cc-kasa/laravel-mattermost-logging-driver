@@ -7,7 +7,7 @@
         "php": ">=7.1.0",
         "laravel/framework": "^6.0|^7.0",
         "thibaud-dauce/mattermost-php": "^1.2",
-        "monolog/monolog": "^1.23",
+        "monolog/monolog": "^2.0",
         "coduo/php-to-string": "^2.0"
     },
     "require-dev": {
