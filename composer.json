@@ -1,11 +1,11 @@
 {
-    "name": "colbygarland/laravel-mattermost-logging-driver",
+    "name": "jack-cc-kasa/laravel-mattermost-logging-driver",
     "description": "A log driver for Mattermost",
     "type": "library",
     "license": "MIT",
     "require": {
         "php": ">=7.1.0",
-        "laravel/framework": "^6.0|^7.0|^8.0",
+        "laravel/framework": "^6.0|^7.0|^8.0|^9.0",
         "thibaud-dauce/mattermost-php": "^1.2",
         "monolog/monolog": "^2.0",
         "coduo/php-to-string": "^3.0"
@@ -26,6 +26,10 @@
         {
             "name": "Colby Garland",
             "email": "colbygarland@gmail.com"
+        },
+        {
+        "name": "Jack Casey-Campbell",
+        "email": "jackcc.kasa@gmail.com"
         }
     ],
     "autoload": {
