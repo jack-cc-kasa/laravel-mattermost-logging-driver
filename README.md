@@ -6,7 +6,7 @@ This driver allows you to send your logs to your Mattermost instance. It will at
 ## Installation
 
 ```
-composer require colbygarland/laravel-mattermost-logging-driver
+composer require jack-cc-kasa/laravel-mattermost-logging-driver
 ```
 
 ## Configuration
