@@ -52,7 +52,7 @@ final class Handler extends AbstractProcessingHandler
         return new $this->scribeClass(
             new $this->messageClass,
             $this->options,
-            $record
+            $record->toArray()
         );
     }
 
