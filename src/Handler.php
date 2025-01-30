@@ -40,11 +40,11 @@ final class Handler extends AbstractProcessingHandler
         if (!$this->shouldWrite($record->level->value)) { // ✅ Fix: Convert level object to int
             return;
         }
-
-        $this->mattermost->send(
-            $this->makeScribe($record)->message(),
-            $this->options->webhook()
-        );
+        //TEMP REMOVE LOGGING TO  TEST
+        // $this->mattermost->send(
+        //     $this->makeScribe($record)->message(),
+        //     $this->options->webhook()
+        // );
     }
 
     private function makeScribe(LogRecord $record): Scribe
