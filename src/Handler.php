@@ -40,19 +40,28 @@ final class Handler extends AbstractProcessingHandler
         if (!$this->shouldWrite($record->level->value)) { // ✅ Fix: Convert level object to int
             return;
         }
-        //TEMP REMOVE LOGGING TO  TEST
-        // $this->mattermost->send(
-        //     $this->makeScribe($record)->message(),
-        //     $this->options->webhook()
-        // );
+        
+        $this->mattermost->send(
+            $this->makeScribe($record)->message(),
+            $this->options->webhook()
+        );
     }
 
     private function makeScribe(LogRecord $record): Scribe
     {
+        $logRecordArray = [
+            'level' => $record->level->value,
+            'level_name' => $record->level_name,
+            'channel' => $record->channel,
+            'message' => $record->message,
+            'context' => $record->context,
+            'extra' => $record->extra,
+            'datetime' => $record->datetime->format('Y-m-d H:i:s'),
+        ];
         return new $this->scribeClass(
             new $this->messageClass,
             $this->options,
-            $record->toArray()
+            $logRecordArray
         );
     }
 
