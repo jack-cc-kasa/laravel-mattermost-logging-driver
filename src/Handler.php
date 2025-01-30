@@ -50,13 +50,13 @@ final class Handler extends AbstractProcessingHandler
     private function makeScribe(LogRecord $record): Scribe
     {
         $logRecordArray = [
-            'level' => $record->level->value,
-            'level_name' => $record->level_name,
-            'channel' => $record->channel,
-            'message' => $record->message,
-            'context' => $record->context,
-            'extra' => $record->extra,
-            'datetime' => $record->datetime->format('Y-m-d H:i:s'),
+            'level' => $record->level->value,             // Getting the level value
+            'level_name' => $record->level->name ?? null,  // Getting the string name of the level (safe fallback)
+            'channel' => $record->channel ?? null,         // Channel (fallback in case it's null)
+            'message' => $record->message ?? null,         // Message (fallback in case it's null)
+            'context' => $record->context ?? [],           // Context (fallback empty array)
+            'extra' => $record->extra ?? [],               // Extra (fallback empty array)
+            'datetime' => $record->datetime->format('Y-m-d H:i:s') ?? null, // Formatted datetime
         ];
         return new $this->scribeClass(
             new $this->messageClass,
