@@ -13,6 +13,6 @@ interface Message extends Arrayable
     public function username($username);
     public function channel($channel);
     public function attachment(Closure $callback);
-    public function addExceptionAttachment (Exception $ex, int $maxLen): void;
+    public function addExceptionAttachment (\Throwable $ex, int $maxLen): void;
     public function addContextAttachment (array $context, int $shortLength): void;
 }
