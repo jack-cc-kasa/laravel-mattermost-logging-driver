@@ -16,8 +16,8 @@ final class DefaultScribe implements Scribe
     /** @var array */
     private $context;
 
-    /** @var ?Exception */
-    private $exception;
+    /** @var ?\Throwable */
+    private $throwable;
 
     /** @var \colbygarland\Mattermost\Logger\Interfaces\Options */
     private $options;
@@ -46,7 +46,7 @@ final class DefaultScribe implements Scribe
         $this->message->iconUrl($this->options->iconUrl());
         $this->message->text($this->title());
 
-        if ($this->exception) {
+        if ($this->throwable) {
             $this->message->addExceptionAttachment(
                 $this->throwable,
                 $this->options->maxAttachmentLength()
@@ -120,7 +120,7 @@ final class DefaultScribe implements Scribe
     private function setException (array $record): void
     {
         if (isset($record['context']['exception'])) {
-            $this->exception = $record['context']['exception'];
+            $this->throwable = $record['context']['exception'];
         }
     }
 }
