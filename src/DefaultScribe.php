@@ -48,7 +48,7 @@ final class DefaultScribe implements Scribe
 
         if ($this->exception) {
             $this->message->addExceptionAttachment(
-                $this->exception,
+                $this->throwable,
                 $this->options->maxAttachmentLength()
             );
         }
