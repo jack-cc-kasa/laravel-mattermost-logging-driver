@@ -11,7 +11,7 @@ use ThibaudDauce\Mattermost\Message as MattermostMessage;
 
 class DefaultMessage extends MattermostMessage implements Message
 {
-    public function addExceptionAttachment (Exception $ex, int $maxLen): void
+    public function addExceptionAttachment (Throwable $ex, int $maxLen): void
     {
         $this->attachment(
             $this->exceptionCb($ex, $maxLen)
