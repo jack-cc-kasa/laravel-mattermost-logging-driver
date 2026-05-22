@@ -5,7 +5,6 @@ namespace colbygarland\Mattermost\Logger;
 use Closure;
 use Coduo\ToString\StringConverter;
 use colbygarland\Mattermost\Logger\Interfaces\Message;
-use Exception;
 use ThibaudDauce\Mattermost\Attachment;
 use ThibaudDauce\Mattermost\Message as MattermostMessage;
 
@@ -25,7 +24,7 @@ class DefaultMessage extends MattermostMessage implements Message
         );
     }
 
-    private function exceptionCb (Exception $exception, int $maxLength): Closure
+    private function exceptionCb (\Throwable $exception, int $maxLength): Closure
     {
         return function (Attachment $attachment) use ($exception, $maxLength) {
             $attachment->text(
